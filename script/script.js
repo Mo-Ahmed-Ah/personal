@@ -71,29 +71,20 @@ const typed = new Typed(".multiple-text", {
   loop: true,
 });
 
-// تحديد السمة بناءً على تفضيلات النظام
-// تحديد المتغيرات
 let systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
   ? "dark"
   : "light";
 
-// الحصول على السمة الحالية من localStorage أو تعيينها بناءً على تفضيلات النظام إذا لم يتم تحديدها
 let currentTheme = localStorage.getItem("theme") || systemTheme;
 
-// تعيين السمة إلى <html> عند تحميل الصفحة
 document.documentElement.setAttribute("data-theme", currentTheme);
 
-// الحصول على الزر الخاص بتبديل الوضع الداكن والفاتح
 const darkModeToggle = document.querySelector(".navbar label");
 
-// إضافة حدث النقر للتبديل بين الثيمين
 darkModeToggle.addEventListener("click", () => {
-  // التبديل بين "light" و "dark"
   currentTheme = currentTheme === "light" ? "dark" : "light";
 
-  // تعيين السمة الجديدة
   document.documentElement.setAttribute("data-theme", currentTheme);
 
-  // حفظ السمة الجديدة في localStorage
   localStorage.setItem("theme", currentTheme);
 });

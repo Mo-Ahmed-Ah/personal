@@ -82,30 +82,79 @@ section {
 .navbar a.active {
     color: var(--main-color);
 }
-
-.navbar label{
+/* تنسيق الزر الأساسي */
+.navbar label {
     width: 4rem;
     height: 2rem;
     background-color: var(--text-color);
     display: inline-block;
-    border-radius: 200px;
+    border-radius: 50px;
     cursor: pointer;
-    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.4) ,
+    position: relative; 
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.4),
                 inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.3rem;
 }
 
-.navbar label::after{
+/* الزر الدائري المتحرك */
+.navbar label::after {
     content: '';
-    width: 2rem;
-    height: 2rem;
+    width: 1.8rem;
+    height: 1.8rem;
     position: absolute;
-    top: 10;
-    left: 10;
-    background: linear-gradient(180deg, var(--sun-color) ,var(--highlight-color));
+    top: 0.1rem;
+    left: 0.1rem;
+    background: linear-gradient(180deg, var(--sun-color), var(--highlight-color));
     border-radius: 50%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateX(0);
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2) 
 }
+
+/* أيقونات الشمس والقمر */
+.navbar label::before {
+    content: '☀️';
+    position: absolute;
+    left: 0.5rem;
+    font-size: 1rem;
+    color: var(--highlight-color);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+[data-theme="dark"] .navbar label::before {
+    content: '🌙';
+    right: 0.5rem;
+    left: auto;
+    color: #f2f2f2;
+}
+
+/* تحريك الزر عند الوضع الداكن */
+[data-theme="dark"] .navbar label::after {
+    transform: translateX(2rem); 
+    background: linear-gradient(180deg, #f2f2f2, #cccccc);
+}
+
+/* تأثير عند التوقف (hover) في الوضع النهاري */
+:not([data-theme="dark"]) .navbar label:hover::after {
+    transform: translateX(1.5rem); /* تحريك الزر بنصف الحركة للأمام */
+}
+
+/* تأثير عند التوقف (hover) في الوضع الليلي */
+[data-theme="dark"] .navbar label:hover::after {
+    transform: translateX(-.01rem); /* تحريك الزر بنصف الحركة للخلف */
+}
+
+/* تأثير عند التوقف على الزر */
+.navbar label:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2),
+                0px 0px 20px rgba(255, 255, 255, 0.3);
+}
+
 
 #menu-icon {
     font-size: 3.6rem;
@@ -143,6 +192,7 @@ span {
     border-radius: 20px;
     animation: floatImage 4s ease-in-out infinite;
     margin-left: 20%;
+
 }
 
 @keyframes floatImage {
@@ -208,6 +258,7 @@ span {
     align-items: center;
     gap: 2rem;
     background: var(--snd-bf-color);
+    border-radius: 30px;
 }
 
 .about-image img {
@@ -509,6 +560,7 @@ span {
     }
 
     .home-image img {
+        
         width: 60vw;
         margin-top: 4rem;
     }
