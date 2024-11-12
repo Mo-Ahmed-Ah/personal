@@ -17,6 +17,16 @@
     --text-color: #333333;
     --main-color: #006F9C;
     --highlight-color: #F59E42;
+    --sun-color: #e4a35f;
+}
+
+[data-theme="dark"] {
+    --bg-color: #333333;
+    --snd-bf-color: #444444;
+    --text-color: #F4F7FA;
+    --main-color: #F59E42;
+    --highlight-color: #006F9C;
+    --sun-color: #e4a35f;
 }
 
 
@@ -55,6 +65,11 @@ section {
     font-weight: 700;
     cursor: default;
 }
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .navbar a {
     font-size: 1.5rem;
@@ -68,6 +83,29 @@ section {
     color: var(--main-color);
 }
 
+.navbar label{
+    width: 4rem;
+    height: 2rem;
+    background-color: var(--text-color);
+    display: inline-block;
+    border-radius: 200px;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.4) ,
+                inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+}
+
+.navbar label::after{
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 10;
+    left: 10;
+    background: linear-gradient(180deg, var(--sun-color) ,var(--highlight-color));
+    border-radius: 50%;
+    transform: translateX(0);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2) 
+}
 
 #menu-icon {
     font-size: 3.6rem;
@@ -422,7 +460,11 @@ span {
         padding: 2rem 3%;
     }
 }
-
+@media (min-width: 768px){
+    .navbar{
+        width: 70%;
+    }
+}
 @media (max-width: 768px) {
     #menu-icon {
         display: block;
