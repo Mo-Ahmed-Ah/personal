@@ -76,6 +76,7 @@ section {
     color: var(--text-color);
     margin-left: 4rem;
     font-weight: 700;
+    transition: color .5s ease;
 }
 
 .navbar a:hover,
@@ -611,6 +612,12 @@ span {
     }
 }
 
+@media (max-width: 492px){
+    .about{
+        width: 95%;
+        /* border-radius: 0px; */
+    }
+}
 
 @media (max-width: 450px) {
     html {
