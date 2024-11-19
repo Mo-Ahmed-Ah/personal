@@ -450,12 +450,19 @@ span {
 .footer {
     display: flex;
     justify-content: space-between;
+    font-size: 2rem;
+    color: var(--text-color);
     align-items: center;
     gap: 2rem;
     margin-top: 5rem;
-    background: var(--bg-color);
-    padding: 3rem;
+    background: var(--main-color);
+    padding: 2rem;
     flex-wrap: wrap;
+}
+
+.footer span{
+    font-weight: bold;
+    color: var(--highlight-color);
 }
 
 .footer-logo {
