@@ -352,6 +352,7 @@ span {
 
 .protofolio-box img {
     width: 100%;
+    max-height: 220px;
     transition: .5s ease;
     opacity: 0.7;
 }
