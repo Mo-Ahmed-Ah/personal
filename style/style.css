@@ -76,6 +76,7 @@ section {
     color: var(--text-color);
     margin-left: 4rem;
     font-weight: 700;
+    transition: color .5s ease;
 }
 
 .navbar a:hover,
@@ -351,6 +352,7 @@ span {
 
 .protofolio-box img {
     width: 100%;
+    max-height: 220px;
     transition: .5s ease;
     opacity: 0.7;
 }
@@ -448,12 +450,19 @@ span {
 .footer {
     display: flex;
     justify-content: space-between;
+    font-size: 2rem;
+    color: var(--text-color);
     align-items: center;
     gap: 2rem;
     margin-top: 5rem;
-    background: var(--bg-color);
-    padding: 3rem;
+    background: var(--main-color);
+    padding: 2rem;
     flex-wrap: wrap;
+}
+
+.footer span{
+    font-weight: bold;
+    color: var(--highlight-color);
 }
 
 .footer-logo {
@@ -611,6 +620,12 @@ span {
     }
 }
 
+@media (max-width: 492px){
+    .about{
+        width: 95%;
+        /* border-radius: 0px; */
+    }
+}
 
 @media (max-width: 450px) {
     html {
