@@ -101,7 +101,6 @@ section {
     padding: 0 0.3rem;
 }
 
-/* الزر الدائري المتحرك */
 .navbar label::after {
     content: '';
     width: 1.8rem;
